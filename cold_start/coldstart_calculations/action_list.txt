@@ -1,0 +1,5 @@
+wsk action invoke tripleAndIncrement
+wsk action invoke composition
+wsk action invoke branchVanilla
+wsk action invoke branchJsToPython
+wsk action invoke mergeruns

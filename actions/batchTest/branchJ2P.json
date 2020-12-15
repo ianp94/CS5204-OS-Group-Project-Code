@@ -1,0 +1,198 @@
+{
+    "composition": {
+        "type": "let",
+        "declarations": {
+            "count": 5
+        },
+        "components": [
+            {
+                "type": "let",
+                "declarations": {
+                    "params": null
+                },
+                "components": [
+                    {
+                        "type": "finally",
+                        "body": {
+                            "type": "function",
+                            "function": {
+                                "exec": {
+                                    "kind": "nodejs:default",
+                                    "code": "args => { params = args }"
+                                }
+                            }
+                        },
+                        "finalizer": {
+                            "type": "sequence",
+                            "components": [
+                                {
+                                    "type": "while_nosave",
+                                    "test": {
+                                        "type": "mask",
+                                        "components": [
+                                            {
+                                                "type": "function",
+                                                "function": {
+                                                    "exec": {
+                                                        "kind": "nodejs:default",
+                                                        "code": "() => count-- > 0"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "body": {
+                                        "type": "finally",
+                                        "body": {
+                                            "type": "function",
+                                            "function": {
+                                                "exec": {
+                                                    "kind": "nodejs:default",
+                                                    "code": "() => params"
+                                                }
+                                            }
+                                        },
+                                        "finalizer": {
+                                            "type": "sequence",
+                                            "components": [
+                                                {
+                                                    "type": "mask",
+                                                    "components": [
+                                                        {
+                                                            "type": "mask",
+                                                            "components": [
+                                                                {
+                                                                    "type": "let",
+                                                                    "declarations": {
+                                                                        "params": null
+                                                                    },
+                                                                    "components": [
+                                                                        {
+                                                                            "type": "finally",
+                                                                            "body": {
+                                                                                "type": "function",
+                                                                                "function": {
+                                                                                    "exec": {
+                                                                                        "kind": "nodejs:default",
+                                                                                        "code": "args => { params = args }"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "finalizer": {
+                                                                                "type": "if_nosave",
+                                                                                "test": {
+                                                                                    "type": "mask",
+                                                                                    "components": [
+                                                                                        {
+                                                                                            "type": "action",
+                                                                                            "name": "/_/randProb",
+                                                                                            "path": "[0].test"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "consequent": {
+                                                                                    "type": "finally",
+                                                                                    "body": {
+                                                                                        "type": "function",
+                                                                                        "function": {
+                                                                                            "exec": {
+                                                                                                "kind": "nodejs:default",
+                                                                                                "code": "() => params"
+                                                                                            }
+                                                                                        }
+                                                                                    },
+                                                                                    "finalizer": {
+                                                                                        "type": "mask",
+                                                                                        "components": [
+                                                                                            {
+                                                                                                "type": "action",
+                                                                                                "name": "/_/ifTrue",
+                                                                                                "path": "[0].consequent"
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                },
+                                                                                "alternate": {
+                                                                                    "type": "finally",
+                                                                                    "body": {
+                                                                                        "type": "function",
+                                                                                        "function": {
+                                                                                            "exec": {
+                                                                                                "kind": "nodejs:default",
+                                                                                                "code": "() => params"
+                                                                                            }
+                                                                                        }
+                                                                                    },
+                                                                                    "finalizer": {
+                                                                                        "type": "mask",
+                                                                                        "components": [
+                                                                                            {
+                                                                                                "type": "action",
+                                                                                                "name": "/_/ifFalse",
+                                                                                                "path": "[0].alternate"
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "path": "[0]"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "function",
+                                                    "function": {
+                                                        "exec": {
+                                                            "kind": "nodejs:default",
+                                                            "code": "args => { params = args }"
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "function",
+                                    "function": {
+                                        "exec": {
+                                            "kind": "nodejs:default",
+                                            "code": "() => params"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "path": ""
+    },
+    "ast": {
+        "type": "repeat",
+        "count": 5,
+        "components": [
+            {
+                "type": "if",
+                "test": {
+                    "type": "action",
+                    "name": "/_/randProb"
+                },
+                "consequent": {
+                    "type": "action",
+                    "name": "/_/ifTrue"
+                },
+                "alternate": {
+                    "type": "action",
+                    "name": "/_/ifFalse"
+                }
+            }
+        ]
+    },
+    "version": "0.12.0"
+}

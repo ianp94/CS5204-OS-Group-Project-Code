@@ -1,0 +1,33 @@
+// This function is called 2 times, once to start, and then again
+// after branching 
+function main(params) {
+
+    // Check that we haven't branched yet
+    // By seeing if the user gave us a probability
+    // for branching. Otherwise it was one of
+    // the branches returning into this function
+    var canBranch = ('prob' in params);
+
+
+    // If we can not perform branching, return
+    // the results from the branch that returned to
+    // this function.
+    if (!canBranch){
+	return {result: params}
+    }
+
+    // Generate a random value from a pseudo-uniform distribution
+    var rand = Math.random() 
+    var prob = params.prob;
+    
+    // Create a new set of parameters to pass the branch
+    var newParams = {prob, rand}
+
+    // Perform the branching
+    if(rand < prob){
+        return {action: 'leftVanilla', params: {params: newParams}, state: {branch: 'leftVanilla'}}
+    }
+    else{
+        return {action: 'rightVanilla', params: {params: newParams}, state: {branch: 'rightVanilla'}}
+    }
+}

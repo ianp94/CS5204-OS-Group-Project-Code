@@ -1,0 +1,28 @@
+wsk trigger delete triple
+wsk trigger delete increment
+wsk trigger delete tripleAndIncrement
+wsk trigger delete composition
+wsk trigger delete ifFalse
+wsk trigger delete ifTrue
+wsk trigger delete prob
+wsk trigger delete randProb
+wsk trigger delete rands
+wsk trigger delete branchJsToPython
+wsk trigger delete mergeruns
+wsk trigger delete branchVanilla
+wsk trigger delete leftVanilla
+wsk trigger delete rightVanilla
+wsk action update triple /home/cs5204/actions/sequentialTest/triple.js --kind nodejs:10
+wsk action update increment /home/cs5204/actions/sequentialTest/increment.js --kind nodejs:10
+wsk action update tripleAndIncrement /home/cs5204/actions/sequentialTest/tripleAndIncrement.js --kind nodejs:10
+wsk action update composition /home/cs5204/actions/probTest/composition.py --kind python:3
+wsk action update ifFalse /home/cs5204/actions/probTest/ifFalse.py --kind python:3
+wsk action update ifTrue /home/cs5204/actions/probTest/ifTrue.py --kind python:3
+wsk action update prob /home/cs5204/actions/probTest/prob.py --kind python:3
+wsk action update randProb /home/cs5204/actions/probTest/randProb.py --kind python:3
+wsk action update rands /home/cs5204/actions/probTest/rands.py --kind python:3
+wsk action update branchJsToPython /home/cs5204/actions/batchTest/branchJsToPython.js --kind nodejs:10
+wsk action update mergeruns /home/cs5204/actions/batchTest/mergeruns.js --kind nodejs:10
+wsk action update branchVanilla /home/cs5204/actions/probTestJSVanilla/branchVanilla.js --kind nodejs:10
+wsk action update leftVanilla /home/cs5204/actions/probTestJSVanilla/leftVanilla.js --kind nodejs:10
+wsk action update rightVanilla /home/cs5204/actions/probTestJSVanilla/rightVanilla.js --kind nodejs:10

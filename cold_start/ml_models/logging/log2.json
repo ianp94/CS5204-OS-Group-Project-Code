@@ -1,0 +1,34 @@
+[
+{
+    "namespace": "guest",
+    "name": "highProb",
+    "version": "0.0.1",
+    "subject": "guest",
+    "activationId": "6d3a819317e64cc9ba819317e63cc9ff",
+    "cause": "a363fa07c7614fd3a3fa07c7613fd32b",
+    "start": 1604851761926,
+    "end": 1604851762394,
+    "duration": 468,
+    "statusCode": 0,
+    "response": {
+        "status": "action developer error",
+        "statusCode": 0,
+        "success": false,
+        "result": {
+            "error": "The action failed to generate or locate a binary. See logs for details."
+        }
+    }
+},
+{
+    "namespace": "guest",
+    "name": "test",
+    "version": "0.0.1",
+    "subject": "guest",
+    "activationId": "bdd8c3fbe4c5428d98c3fbe4c5f28d30",
+    "cause": "f20e6527947543048e65279475a304df",
+    "start": 1604851761961,
+    "end": 1604851762506,
+    "duration": 545,
+    "statusCode": 0
+}
+]

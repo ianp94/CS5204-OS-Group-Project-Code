@@ -1,0 +1,80 @@
+{
+    "composition": {
+        "type": "sequence",
+        "components": [
+            {
+                "type": "let",
+                "declarations": {
+                    "params": null
+                },
+                "components": [
+                    {
+                        "type": "finally",
+                        "body": {
+                            "type": "function",
+                            "function": {
+                                "exec": {
+                                    "kind": "nodejs:default",
+                                    "code": "args => { params = args }"
+                                }
+                            }
+                        },
+                        "finalizer": {
+                            "type": "sequence",
+                            "components": [
+                                {
+                                    "type": "mask",
+                                    "components": [
+                                        {
+                                            "type": "action",
+                                            "name": "/_/branch",
+                                            "path": "[0]"
+                                        },
+                                        {
+                                            "type": "action",
+                                            "name": "/_/composition",
+                                            "path": "[1]"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "function",
+                                    "function": {
+                                        "exec": {
+                                            "kind": "nodejs:default",
+                                            "code": "result => ({ params, result })"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "function",
+                "function": {
+                    "exec": {
+                        "kind": "nodejs:default",
+                        "code": "({ params, result }) => Object.assign(params, result)"
+                    }
+                }
+            }
+        ],
+        "path": ""
+    },
+    "ast": {
+        "type": "merge",
+        "components": [
+            {
+                "type": "action",
+                "name": "/_/branch"
+            },
+            {
+                "type": "action",
+                "name": "/_/composition"
+            }
+        ]
+    },
+    "version": "0.12.0"
+}
